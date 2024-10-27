@@ -8,7 +8,7 @@ const HomeScreen = () => {
       <Text>ddd</Text>
       <Text>ddd</Text>
       <Text>ddd</Text>
-      <Text>ddd</Text>
+      <Text>asdfasdfx</Text>
     </View>
   );
 };
