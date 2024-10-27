@@ -6,9 +6,8 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "all": "react-native run-android && react-native run-ios",
-    "lint": "eslint .",
-    "start": "react-native start",
-    "test": "jest"
+    "lint": "eslint ./src App.tsx AppInner.tsx index.js",
+    "fix": "npm run lint -- --fix"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.11",
@@ -39,6 +38,8 @@
     "babel-jest": "^29.6.3",
     "babel-plugin-module-resolver": "^5.0.2",
     "eslint": "^8.19.0",
+    "eslint-plugin-perfectionist": "^3.9.1",
+    "eslint-plugin-tailwindcss": "^3.17.5",
     "jest": "^29.6.3",
     "prettier": "2.8.8",
     "react-test-renderer": "18.3.1",
