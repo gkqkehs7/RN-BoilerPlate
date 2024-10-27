@@ -37,6 +37,7 @@ module.exports = {
           'internal',
           ['parent', 'sibling', 'index'],
           'customScreens',
+          'customLayouts',
           'customComponents',
           'customRoutes',
           'customRecoil',
@@ -53,6 +54,7 @@ module.exports = {
           value: {
             react: ['react', 'react-*', '@react-*'],
             customScreens: ['@screens/**'],
+            customLayouts: ['@layouts/**'],
             customComponents: ['@components/**'],
             customRoutes: ['@routes/**'],
             customRecoil: ['@recoil/**'],

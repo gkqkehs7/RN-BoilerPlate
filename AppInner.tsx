@@ -8,7 +8,11 @@ const Stack = createNativeStackNavigator();
 
 const AppInner = (): React.JSX.Element => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      initialRouteName="MainScreen"
+      screenOptions={{
+        headerShown: false,
+      }}>
       <Stack.Screen name="Home" component={HomeScreen} />
     </Stack.Navigator>
   );

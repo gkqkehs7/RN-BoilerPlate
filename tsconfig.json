@@ -16,8 +16,8 @@
     // alias 설정
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
       "@screens/*": ["src/screens/*"],
+      "@layouts/*": ["src/layouts/*"],
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"],
       "@routes/*": ["src/routes/*"],
