@@ -22,6 +22,7 @@ module.exports = {
     'jest.config.js',
     'metro.config.js',
     'tailwind.config.js',
+    'react-native.config.js',
   ],
   rules: {
     'no-unused-vars': 'error',
