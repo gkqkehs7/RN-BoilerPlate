@@ -5,8 +5,7 @@ interface CustomTextProps extends TextProps {}
 
 const CustomText: React.FC<CustomTextProps> = ({style, ...rest}) => {
   const customStyle = {
-    fontFamily: 'Hakgyoansim Dunggeunmiso TTF R',
-    color: '#000000',
+    fontFamily: 'Hakgyoansim Dunggeunmiso TTF B',
   };
 
   return <Text style={[customStyle, style]} {...rest} />;
