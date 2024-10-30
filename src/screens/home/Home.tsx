@@ -6,6 +6,7 @@ import BasicLayout from '@layouts/basic';
 import CustomText from '@components/customText';
 
 import Tini from '@assets/images/tini.svg';
+import Heart from '@assets/images/heart.svg';
 import Search from '@assets/images/search.svg';
 
 const datas = [
