@@ -8,7 +8,9 @@ const CustomText: React.FC<CustomTextProps> = ({style, ...rest}) => {
     fontFamily: 'Hakgyoansim Dunggeunmiso TTF B',
   };
 
-  return <Text style={[customStyle, style]} {...rest} />;
+  return (
+    <Text className="tracking-tight" style={[customStyle, style]} {...rest} />
+  );
 };
 
 export default CustomText;

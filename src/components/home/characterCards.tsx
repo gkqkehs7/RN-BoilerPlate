@@ -7,9 +7,13 @@ import {Character} from '@type/entities/character';
 
 interface CharacterCardsProps {
   groupedCharacters: [Character, Character][];
+  navigateCharacterDetailScreen: (characterId: number) => void;
 }
 
-const CharacterCards: React.FC<CharacterCardsProps> = ({groupedCharacters}) => {
+const CharacterCards: React.FC<CharacterCardsProps> = ({
+  groupedCharacters,
+  navigateCharacterDetailScreen,
+}) => {
   const wid = (Dimensions.get('window').width - 40) / 2;
 
   return (
@@ -18,9 +22,17 @@ const CharacterCards: React.FC<CharacterCardsProps> = ({groupedCharacters}) => {
         groupedCharacters.map((groupedCharacter, index) => (
           <View key={index} className="mt-4">
             <View className="flex-row justify-between">
-              <CharacterCard character={groupedCharacter[0]} size={wid} />
+              <CharacterCard
+                character={groupedCharacter[0]}
+                navigateCharacterDetailScreen={navigateCharacterDetailScreen}
+                size={wid}
+              />
               {groupedCharacter[1] && (
-                <CharacterCard character={groupedCharacter[1]} size={wid} />
+                <CharacterCard
+                  character={groupedCharacter[1]}
+                  navigateCharacterDetailScreen={navigateCharacterDetailScreen}
+                  size={wid}
+                />
               )}
             </View>
           </View>
