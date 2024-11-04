@@ -11,7 +11,10 @@ const BasicLayout: React.FC<BasicLayoutProps> = ({children}) => {
       <ImageBackground
         source={require('src/assets/images/home.png')}
         resizeMode="cover">
-        <ScrollView showsVerticalScrollIndicator={false} className="px-4">
+        <ScrollView
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
+          className="px-4">
           {children}
         </ScrollView>
       </ImageBackground>

@@ -43,8 +43,8 @@ const CharacterDetailScreen: React.FC<CharacterDetailScreenProps> = ({
   return (
     <SafeAreaView className="flex-1">
       <ImageBackground source={backgroundImage} resizeMode="cover">
-        <ScrollView className="mt-8" showsVerticalScrollIndicator={false}>
-          <CustomText className="text-center text-[32px] text-white">
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <CustomText className="text-center text-[32px] text-white mt-8">
             ♡{characterDetailData.name}♡̈
           </CustomText>
 

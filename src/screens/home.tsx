@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, Text, TextInput, Pressable} from 'react-native';
+import {View, TextInput, Pressable} from 'react-native';
 
-import {characters} from 'src/characterDatas';
+import {characterDatas} from 'src/characterDatas';
 
 import BasicLayout from '@layouts/basic';
 
@@ -15,23 +15,45 @@ import Search from '@assets/images/search.svg';
 import CustomThinText from '@components/customThinText';
 
 const HomeScreen = ({navigation}: HomeScreenProps) => {
+  const [searchInput, setSearchInput] = React.useState<string>('');
+  const [placeholder, setPlaceholder] =
+    React.useState<string>('티니핑을 찾아봐요♥');
+
+  const [characters, setCharacters] =
+    React.useState<Character[]>(characterDatas);
+
   const [groupedCharacters, setGroupedCharacters] = React.useState<
     [Character, Character][]
   >([]);
 
-  const [placeholder, setPlaceholder] =
-    React.useState<string>('티니핑을 찾아봐요♥');
-
   const textInputRef = React.useRef<TextInput>(null);
 
   const textInputFocus = () => {
+    console.log('?');
     textInputRef.current?.focus();
   };
 
+  const textInputOnfocus = (): void => {
+    setPlaceholder('');
+  };
+
+  const textInputOnBlur = (): void => {
+    setPlaceholder('티니핑을 찾아봐요♥');
+    setSearchInput('');
+  };
+
   const navigateCharacterDetailScreen = (characterId: number) => {
-    console.log(characterId);
     navigation.navigate('CharacterDetailScreen', {characterId: characterId});
   };
+
+  React.useEffect(() => {
+    const filteredCharacters = characters.filter(character =>
+      character.name.includes(searchInput),
+    );
+
+    console.log(filteredCharacters);
+    setCharacters(filteredCharacters);
+  }, [searchInput]);
 
   React.useEffect(() => {
     const groupedData: [Character, Character][] = characters
@@ -47,11 +69,11 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
       .filter(Boolean);
 
     setGroupedCharacters(groupedData);
-  }, []);
+  }, [searchInput]);
 
   return (
     <BasicLayout>
-      <View className="my-8">
+      <View className="mt-6 mb-8">
         <View className="mb-[26px] flex-row items-center">
           <View className="mr-[22px]">
             <CustomText className="text-[20px] text-[#FF3B93]">
@@ -71,8 +93,10 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
 
             <TextInput
               ref={textInputRef}
-              onFocus={() => setPlaceholder('')}
-              onBlur={() => setPlaceholder('티니핑을 찾아봐요♥')}
+              value={searchInput}
+              onChangeText={setSearchInput}
+              onFocus={textInputOnfocus}
+              onBlur={textInputOnBlur}
               maxLength={40}
             />
 

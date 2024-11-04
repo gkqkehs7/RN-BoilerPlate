@@ -1,6 +1,6 @@
 import {Character} from '@type/entities/character';
 
-export const characters: Character[] = [
+export const characterDatas: Character[] = [
   {
     id: 1,
     name: '플로라 하츄핑2',
