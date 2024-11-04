@@ -40,6 +40,7 @@ module.exports = {
           'customScreens',
           'customLayouts',
           'customComponents',
+
           'customRoutes',
           'customRecoil',
           'customAxios',
