@@ -51,7 +51,6 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
       character.name.includes(searchInput),
     );
 
-    console.log(filteredCharacters);
     setCharacters(filteredCharacters);
   }, [searchInput]);
 

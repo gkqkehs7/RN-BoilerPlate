@@ -9,7 +9,8 @@ const BasicLayout: React.FC<BasicLayoutProps> = ({children}) => {
   return (
     <SafeAreaView className="flex-1">
       <ImageBackground
-        source={require('src/assets/images/home.png')}
+        className="flex-1"
+        source={require('src/assets/images/home/background.png')}
         resizeMode="cover">
         <ScrollView
           keyboardShouldPersistTaps="handled"

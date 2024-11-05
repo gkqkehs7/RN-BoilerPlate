@@ -5,12 +5,10 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '@screens/home';
 import QuizScreen from '@screens/quiz';
 
-import {TabNavigatorParamList} from '@type/params/stack';
-
-import QuizIcon from '@assets/images/main/quizIcon.svg';
-import WikiIcon from '@assets/images/main/wikiIcon.svg';
 import WikiTabBar from '@components/main/wikiTabBar';
 import QuizTabBar from '@components/main/quizTabBar';
+
+import {TabNavigatorParamList} from '@type/params/stack';
 
 const Tab = createBottomTabNavigator<TabNavigatorParamList>();
 
@@ -27,12 +25,12 @@ const MainScreen = () => {
       <Tab.Screen
         name="HomeScreen"
         component={HomeScreen}
-        options={({route}) => ({
+        options={() => ({
           // title 없애고 custom 하기 위한 옵션
           tabBarLabel: () => {
             return null;
           },
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: () => {
             return <WikiTabBar />;
           },
         })}
@@ -40,12 +38,12 @@ const MainScreen = () => {
       <Tab.Screen
         name="QuizScreen"
         component={QuizScreen}
-        options={({route}) => ({
+        options={() => ({
           // title 없애고 custom 하기 위한 옵션
           tabBarLabel: () => {
             return null;
           },
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: () => {
             return <QuizTabBar />;
           },
         })}
