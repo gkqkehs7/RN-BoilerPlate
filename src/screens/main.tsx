@@ -30,8 +30,8 @@ const MainScreen = () => {
           tabBarLabel: () => {
             return null;
           },
-          tabBarIcon: () => {
-            return <WikiTabBar />;
+          tabBarIcon: ({focused}) => {
+            return <WikiTabBar focused={focused} />;
           },
         })}
       />
@@ -43,8 +43,8 @@ const MainScreen = () => {
           tabBarLabel: () => {
             return null;
           },
-          tabBarIcon: () => {
-            return <QuizTabBar />;
+          tabBarIcon: ({focused}) => {
+            return <QuizTabBar focused={focused} />;
           },
         })}
       />
