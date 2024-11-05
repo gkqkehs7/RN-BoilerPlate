@@ -9,27 +9,33 @@ import CustomText from '@components/customText';
 import CustomThinText from '@components/customThinText';
 import CharacterCards from '@components/home/characterCards';
 
-import {Character} from '@type/entities/character';
 import {HomeScreenProps} from '@type/params/stack';
+import {Character} from '@type/entities/character';
 
 import Search from '@assets/images/search.svg';
 
 const HomeScreen = ({navigation}: HomeScreenProps) => {
   const [searchInput, setSearchInput] = React.useState<string>('');
+  const [characters, setCharacters] =
+    React.useState<Character[]>(characterDatas);
   const [placeholder, setPlaceholder] =
     React.useState<string>('티니핑을 찾아봐요♥');
 
-  const [characters, setCharacters] =
-    React.useState<Character[]>(characterDatas);
-
-  const [groupedCharacters, setGroupedCharacters] = React.useState<
-    [Character, Character][]
-  >([]);
-
   const textInputRef = React.useRef<TextInput>(null);
 
+  React.useEffect(() => {
+    // Filter characters based on search input
+    if (searchInput) {
+      const filteredCharacters = characterDatas.filter(character =>
+        character.name.includes(searchInput.trim()),
+      );
+      setCharacters(filteredCharacters);
+    } else {
+      setCharacters(characterDatas);
+    }
+  }, [searchInput]);
+
   const textInputFocus = () => {
-    console.log('?');
     textInputRef.current?.focus();
   };
 
@@ -45,30 +51,6 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
   const navigateCharacterDetailScreen = (characterId: number) => {
     navigation.navigate('CharacterDetailScreen', {characterId: characterId});
   };
-
-  React.useEffect(() => {
-    const filteredCharacters = characters.filter(character =>
-      character.name.includes(searchInput),
-    );
-
-    setCharacters(filteredCharacters);
-  }, [searchInput]);
-
-  React.useEffect(() => {
-    const groupedData: [Character, Character][] = characters
-      .reduce(
-        (acc: [Character, Character][], item: Character, index: number) => {
-          if (index % 2 === 0) {
-            acc.push([item, characters[index + 1]]);
-          }
-          return acc;
-        },
-        [] as [Character, Character][],
-      )
-      .filter(Boolean);
-
-    setGroupedCharacters(groupedData);
-  }, [searchInput]);
 
   return (
     <BasicLayout>
@@ -105,7 +87,7 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
 
         {/* 티니핑 카드 */}
         <CharacterCards
-          groupedCharacters={groupedCharacters}
+          characters={characters}
           navigateCharacterDetailScreen={navigateCharacterDetailScreen}
         />
       </View>

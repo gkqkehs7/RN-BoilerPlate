@@ -3,8 +3,8 @@ import {View} from 'react-native';
 
 import CustomText from '@components/customText';
 
-import WikiFocusedIcon from '@assets/images/main/wikiFocusedIcon.svg';
 import WikiIcon from '@assets/images/main/wikiIcon.svg';
+import WikiFocusedIcon from '@assets/images/main/wikiFocusedIcon.svg';
 
 interface WikiTabBarProps {
   focused: boolean;

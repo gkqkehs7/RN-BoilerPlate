@@ -1,43 +1,39 @@
 import React from 'react';
-import {View, Dimensions} from 'react-native';
+import {Dimensions, FlatList, View} from 'react-native';
 
 import CharacterCard from '@components/home/characterCard';
 
 import {Character} from '@type/entities/character';
 
 interface CharacterCardsProps {
-  groupedCharacters: [Character, Character][];
+  characters: Character[];
   navigateCharacterDetailScreen: (characterId: number) => void;
 }
 
 const CharacterCards: React.FC<CharacterCardsProps> = ({
-  groupedCharacters,
+  characters,
   navigateCharacterDetailScreen,
 }) => {
   const wid = (Dimensions.get('window').width - 40) / 2;
 
-  return (
-    <View>
-      {groupedCharacters.length > 0 &&
-        groupedCharacters.map((groupedCharacter, index) => (
-          <View key={index} className="mt-4">
-            <View className="flex-row justify-between">
-              <CharacterCard
-                character={groupedCharacter[0]}
-                navigateCharacterDetailScreen={navigateCharacterDetailScreen}
-                size={wid}
-              />
-              {groupedCharacter[1] && (
-                <CharacterCard
-                  character={groupedCharacter[1]}
-                  navigateCharacterDetailScreen={navigateCharacterDetailScreen}
-                  size={wid}
-                />
-              )}
-            </View>
-          </View>
-        ))}
+  const renderItem = ({item}) => (
+    <View className="flex">
+      <CharacterCard
+        navigateCharacterDetailScreen={navigateCharacterDetailScreen}
+        character={item}
+        size={wid}
+      />
     </View>
+  );
+
+  return (
+    <FlatList
+      data={characters}
+      renderItem={renderItem}
+      numColumns={2}
+      columnWrapperStyle={{justifyContent: 'space-between'}}
+      ItemSeparatorComponent={<View className="m-2" />}
+    />
   );
 };
 
