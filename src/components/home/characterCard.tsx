@@ -29,7 +29,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
         ♡̈{character.name}♡̈
       </CustomText>
 
-      <View className="flex-1 items-center justify-center mt-2">
+      <View className="mt-2 flex-1 items-center justify-center">
         <Image
           style={{width: size - 50, height: size - 50}}
           resizeMode="contain"

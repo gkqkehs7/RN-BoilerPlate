@@ -7,12 +7,18 @@ export type TabNavigatorParamList = {
 export type StackParamList = {
   MainScreen: undefined;
   HomeScreen: undefined;
+  QuizScreen: undefined;
   CharacterDetailScreen: {characterId: number};
 };
 
 export type HomeScreenProps = NativeStackScreenProps<
   StackParamList,
   'HomeScreen'
+>;
+
+export type QuizScreenProps = NativeStackScreenProps<
+  StackParamList,
+  'QuizScreen'
 >;
 
 export type CharacterDetailScreenProps = NativeStackScreenProps<

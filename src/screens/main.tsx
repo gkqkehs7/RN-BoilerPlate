@@ -1,8 +1,16 @@
 import React from 'react';
+
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import {TabNavigatorParamList} from '@type/params/stack';
 import HomeScreen from '@screens/home';
+import QuizScreen from '@screens/quiz';
+
+import {TabNavigatorParamList} from '@type/params/stack';
+
+import QuizIcon from '@assets/images/main/quizIcon.svg';
+import WikiIcon from '@assets/images/main/wikiIcon.svg';
+import WikiTabBar from '@components/main/wikiTabBar';
+import QuizTabBar from '@components/main/quizTabBar';
 
 const Tab = createBottomTabNavigator<TabNavigatorParamList>();
 
@@ -11,19 +19,36 @@ const MainScreen = () => {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
+        tabBarStyle: {
+          backgroundColor: '#FF73B8',
+          height: 75,
+        },
       }}>
       <Tab.Screen
         name="HomeScreen"
         component={HomeScreen}
-        // options={({route}) => ({
-        //   // title 없애고 custom 하기 위한 옵션
-        //   tabBarLabel: () => {
-        //     return null;
-        //   },
-        //   tabBarIcon: ({focused}) => {
-        //     return <HomeTabComponent focused={focused} />;
-        //   },
-        // })}
+        options={({route}) => ({
+          // title 없애고 custom 하기 위한 옵션
+          tabBarLabel: () => {
+            return null;
+          },
+          tabBarIcon: ({focused}) => {
+            return <WikiTabBar />;
+          },
+        })}
+      />
+      <Tab.Screen
+        name="QuizScreen"
+        component={QuizScreen}
+        options={({route}) => ({
+          // title 없애고 custom 하기 위한 옵션
+          tabBarLabel: () => {
+            return null;
+          },
+          tabBarIcon: ({focused}) => {
+            return <QuizTabBar />;
+          },
+        })}
       />
     </Tab.Navigator>
   );

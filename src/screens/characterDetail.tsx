@@ -11,6 +11,7 @@ import {characterDetailDatas} from 'src/characterDetailDatas';
 
 import CustomText from '@components/customText';
 
+import {getBackgroundImage, getPearlImage} from '@utils/image';
 import {
   getBorderColor,
   getDescriptionTextColor,
@@ -20,7 +21,6 @@ import {
 
 import {CharacterDetail} from '@type/entities/character';
 import {CharacterDetailScreenProps} from '@type/params/stack';
-import {getBackgroundImage, getPearlImage} from '@utils/image';
 
 const CharacterDetailScreen: React.FC<CharacterDetailScreenProps> = ({
   route,
@@ -44,7 +44,7 @@ const CharacterDetailScreen: React.FC<CharacterDetailScreenProps> = ({
     <SafeAreaView className="flex-1">
       <ImageBackground source={backgroundImage} resizeMode="cover">
         <ScrollView showsVerticalScrollIndicator={false}>
-          <CustomText className="text-center text-[32px] text-white mt-8">
+          <CustomText className="mt-8 text-center text-[32px] text-white">
             ♡{characterDetailData.name}♡̈
           </CustomText>
 
@@ -68,7 +68,7 @@ const CharacterDetailScreen: React.FC<CharacterDetailScreenProps> = ({
               <Image source={pearlImage} />
             </View>
 
-            <View className="absolute top-2 right-4">
+            <View className="absolute right-4 top-2">
               <Image
                 source={require('@assets/images/characterDetail/likeButton.png')}
               />

@@ -6,13 +6,13 @@ import {characterDatas} from 'src/characterDatas';
 import BasicLayout from '@layouts/basic';
 
 import CustomText from '@components/customText';
+import CustomThinText from '@components/customThinText';
 import CharacterCards from '@components/home/characterCards';
 
 import {Character} from '@type/entities/character';
 import {HomeScreenProps} from '@type/params/stack';
 
 import Search from '@assets/images/search.svg';
-import CustomThinText from '@components/customThinText';
 
 const HomeScreen = ({navigation}: HomeScreenProps) => {
   const [searchInput, setSearchInput] = React.useState<string>('');
@@ -73,7 +73,7 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
 
   return (
     <BasicLayout>
-      <View className="mt-6 mb-8">
+      <View className="mb-8 mt-6">
         <View className="mb-[26px] flex-row items-center">
           <View className="mr-[22px]">
             <CustomText className="text-[20px] text-[#FF3B93]">
