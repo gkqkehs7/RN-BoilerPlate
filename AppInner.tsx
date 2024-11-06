@@ -1,4 +1,5 @@
 import React from 'react';
+import SplashScreen from 'react-native-splash-screen';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -8,8 +9,6 @@ import QuizScreen from '@screens/quiz';
 import CharacterDetailScreen from '@screens/characterDetail';
 
 import {StackParamList} from '@type/params/stack';
-
-import SplashScreen from 'react-native-splash-screen';
 
 const Stack = createNativeStackNavigator<StackParamList>();
 
