@@ -24,7 +24,6 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
   const textInputRef = React.useRef<TextInput>(null);
 
   React.useEffect(() => {
-    // Filter characters based on search input
     if (searchInput) {
       const filteredCharacters = characterDatas.filter(character =>
         character.name.includes(searchInput.trim()),

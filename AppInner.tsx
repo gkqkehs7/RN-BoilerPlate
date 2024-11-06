@@ -9,9 +9,15 @@ import CharacterDetailScreen from '@screens/characterDetail';
 
 import {StackParamList} from '@type/params/stack';
 
+import SplashScreen from 'react-native-splash-screen';
+
 const Stack = createNativeStackNavigator<StackParamList>();
 
 const AppInner = (): React.JSX.Element => {
+  React.useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <Stack.Navigator
       initialRouteName="MainScreen"

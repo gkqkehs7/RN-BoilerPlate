@@ -12,12 +12,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = ({children}) => {
         className="flex-1"
         source={require('src/assets/images/home/background.png')}
         resizeMode="cover">
-        <ScrollView
-          keyboardShouldPersistTaps="handled"
-          showsVerticalScrollIndicator={false}
-          className="px-4">
-          {children}
-        </ScrollView>
+        <ScrollView className="px-4">{children}</ScrollView>
       </ImageBackground>
     </SafeAreaView>
   );
